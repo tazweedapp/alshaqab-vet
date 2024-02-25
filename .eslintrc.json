@@ -1,0 +1,72 @@
+{
+  "extends": "next/core-web-vitals",
+  "plugins": ["import-helpers"],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@/theme", "./src/theme"],
+          ["@/app", "./src/app"],
+          ["@/shared", "./src/shared"],
+          ["@/hooks", "./src/hooks"],
+          ["@/assets", "./src/assets"],
+          ["@/utils", "./src/utils"],
+          ["@/i18n", "./src/i18n.js"],
+          ["@/providers", "./src/providers"],
+          ["@/store", "./src/store"]
+        ],
+
+        "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "no-console": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "indent": ["error", 2],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "@next/next/no-img-element": "warn",
+    "@next/next/no-css-tags": "error",
+    "@next/next/no-sync-scripts": "error",
+    "no-unused-vars": "warn",
+    "eqeqeq": "error",
+    "max-lines": [
+      "error",
+      { "max": 150, "skipBlankLines": true, "skipComments": true }
+    ],
+    "import/no-unresolved": "error",
+    "no-undef": "error",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "ignore",
+        "groups": [
+          ["/^react/", "/^redux/"],
+          "/styled-components/",
+          "/prop-types/",
+          "module",
+          "/^~/modules/",
+          "/^~/shared/",
+          "/^~/components/",
+          ["parent", "sibling", "index"],
+          "/^~/",
+          "/hoc/",
+          "/hooks/",
+          "/service/",
+          "/routes/",
+          "/helpers/",
+          "/helper/",
+          "/util/",
+          "/intl/",
+          "/config/",
+          "/constants/",
+          "/styles/",
+          "/styled/",
+          "/static/"
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
+  }
+}
