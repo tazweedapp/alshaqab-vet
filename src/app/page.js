@@ -14,15 +14,22 @@ import { fileData } from "./[sin-number]/fileData";
 export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
   const onSubmit = async (values) => {
     setLoading(true);
-    const file = fileData.find((file) => file.sin.toString() === values.sin);
-    if (file) {
-      router.push(`/${values.sin}`);
-    } else {
-      toast.error("Document not found.");
+    try {
+      const file = await fileData.find(
+        (file) => file.sin.toString() === values.sin
+      );
+      if (file) {
+        router.push(`/${values.sin}`);
+      } else {
+        toast.error("Document not found.");
+        setLoading(false);
+      }
+    } catch (error) {
+      toast.error("An error occurred while verifying the document.");
     }
-    setLoading(false);
   };
 
   return (
