@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import PropTypes from "prop-types";
 import { IconButton, Stack, Tooltip, Typography, alpha } from "@mui/material";
 import { IconZoomIn, IconZoomOut } from "@tabler/icons-react";
-import { WHITE } from "@/shared/styles";
+import { PRIMARY_COLOR, WHITE } from "@/shared/styles";
 
 const PDFZoom = ({ scale, setScale, ...props }) => {
   const zoomPercentage = useMemo(() => (scale * 100).toFixed(), [scale]);
@@ -28,7 +28,7 @@ const PDFZoom = ({ scale, setScale, ...props }) => {
       direction="row"
       alignItems="center"
       sx={{
-        backgroundColor: alpha(WHITE, 0.2),
+        backgroundColor: PRIMARY_COLOR,
         borderRadius: 4,
         py: 0.3,
         px: 1,

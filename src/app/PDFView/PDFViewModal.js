@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import PropTypes from "prop-types";
+import bg from "@/assets/svgs/background.svg";
 import CloseNavySvg from "@/assets/svgs/close-filled-navy.svg";
 import {
   AppBar,
@@ -18,7 +19,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import PDFAllPages from "./PDFAllPages";
 import PDFZoom from "./PDFZoom";
-import { SECONDARY_LIGHT, WHITE } from "@/shared/styles";
+import { WHITE } from "@/shared/styles";
 
 const HeaderHeight = "4rem";
 
@@ -46,7 +47,7 @@ const PDFViewModal = ({ isOpen, file, title, handleClose }) => {
         sx={{ zIndex: (theme) => theme.zIndex.appBar + 1 }}
         onClose={handleClose}
       >
-        <AppBar sx={{ height: HeaderHeight }}>
+        <AppBar sx={{ height: HeaderHeight, bgcolor: "white" }}>
           <Toolbar>
             <Stack
               mt={[1, 0]}
@@ -55,14 +56,14 @@ const PDFViewModal = ({ isOpen, file, title, handleClose }) => {
               justifyContent="space-between"
               width="100%"
             >
-              <Typography variant="body1" fontWeight={700}>
+              <Typography variant="body1" color="primary" fontWeight={700}>
                 {title || "View PDF"}
               </Typography>
 
               <PDFZoom scale={scale} setScale={setScale} />
               <Stack direction="row" alignItems="center">
                 <IconButton onClick={handleOpenQrDialog}>
-                  <IconQrcode size={30} color={WHITE} />
+                  <IconQrcode size={30} />
                 </IconButton>
                 <Button onClick={handleClose}>
                   <Image src={CloseNavySvg} alt="close" width={30} />
@@ -76,8 +77,8 @@ const PDFViewModal = ({ isOpen, file, title, handleClose }) => {
           mt={HeaderHeight}
           overflow="auto"
           alignItems="center"
-          bgcolor={SECONDARY_LIGHT}
           minHeight={`calc(100% - ${HeaderHeight})`}
+          sx={{ backgroundImage: `url(${bg.src})` }}
         >
           <PDFAllPages file={file} scale={scale} />
         </Stack>
