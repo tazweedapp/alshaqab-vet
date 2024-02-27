@@ -1,6 +1,6 @@
-export const PRIMARY_COLOR = "#211951";
+export const PRIMARY_COLOR = "#315595";
 export const PRIMARY_LIGHT = "#A9B1C4";
-export const SECONDARY_COLOR = "#836FFF";
+export const SECONDARY_COLOR = "#315595";
 export const SECONDARY_LIGHT = "#F2EFE1";
 export const TEXT_PRIMARY = "#181818";
 export const RED = "#EF2B2B";

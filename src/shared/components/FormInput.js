@@ -1,9 +1,12 @@
+import React from "react";
 import { Field } from "react-final-form";
 import PropTypes from "prop-types";
-import { TextField } from "@mui/material";
+
+import Input from "./Input/Input";
 import useValidateForm from "../hooks/useValidationForm";
 import styled from "@emotion/styled";
 
+// Dependencies : react-final-form
 const FormInput = ({ name, fieldProps, fieldBasedProps, ...props }) => {
   const [hasError, errorText] = useValidateForm(name);
 
@@ -11,7 +14,6 @@ const FormInput = ({ name, fieldProps, fieldBasedProps, ...props }) => {
     <Field name={name} {...fieldProps}>
       {({ input }) => (
         <StyledInput
-          fullWidth
           error={hasError}
           helperText={errorText}
           {...(fieldBasedProps ? fieldBasedProps(input) : {})}
@@ -23,9 +25,7 @@ const FormInput = ({ name, fieldProps, fieldBasedProps, ...props }) => {
   );
 };
 
-const StyledInput = styled(TextField)`
-  border-radius: 40px;
-
+const StyledInput = styled(Input)`
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -33,6 +33,13 @@ const StyledInput = styled(TextField)`
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+  &.MuiFormControl-root {
+    margin-bottom: 1rem;
+  }
+  input,
+  textarea {
+    font-size: 0.9rem;
   }
 `;
 
