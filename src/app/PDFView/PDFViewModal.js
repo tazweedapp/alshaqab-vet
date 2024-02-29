@@ -19,7 +19,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import PDFAllPages from "./PDFAllPages";
 import PDFZoom from "./PDFZoom";
-import { WHITE } from "@/shared/styles";
 
 const HeaderHeight = "4rem";
 

@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import { Form } from "react-final-form";
-import { toast } from "react-toastify";
 import bg from "@/assets/svgs/background.svg";
 import logo from "@/assets/svgs/logo.svg";
 import FormInput from "@/shared/components/FormInput";
 import { Button, CircularProgress, Grid, Stack } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { fileData } from "./[sin-number]/fileData";
 
 export default function Home() {
   const router = useRouter();
@@ -17,19 +15,7 @@ export default function Home() {
 
   const onSubmit = async (values) => {
     setLoading(true);
-    try {
-      const file = await fileData.find(
-        (file) => file.sin.toString() === values.sin
-      );
-      if (file) {
-        router.push(`/${values.sin}`);
-      } else {
-        toast.error("Document not found.");
-        setLoading(false);
-      }
-    } catch (error) {
-      toast.error("An error occurred while verifying the document.");
-    }
+    router.push(`/${values.sin}`);
   };
 
   return (
