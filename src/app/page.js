@@ -50,8 +50,8 @@ export default function Home() {
                 <FormInput
                   name="sin"
                   required
-                  placeholder="Enter your SIN Number"
-                  label="Enter your SIN Number"
+                  placeholder="Enter your Lab ID"
+                  label="Enter your Lab ID"
                 />
 
                 <Button
